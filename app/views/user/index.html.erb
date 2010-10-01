@@ -1,0 +1,50 @@
+<% content_for :head do %>
+<style>
+	#page-wrapper { padding: 20px; }
+	.friend { float: left; width: 150px; padding: 20px; }
+	.friend h1 { margin: 0; background-color: #00BC61; -moz-border-radius-topleft: 5px; -moz-border-radius-topright: 5px; text-align: center; }
+	.friend .body { border: 1px solid #00BC61; padding: 20px; }
+	
+	#mary h1 { background-color: red; }
+	#mary .body { border: 1px solid red;}
+	#jim h1 { background-color: yellow; }
+	#jim .body { border: 1px solid yellow;}
+	#zack h1 { background-color: gray; }
+	#zack .body { border: 1px solid gray;}
+	
+	form { padding: 20px; }
+</style>
+<% end %>
+<div id="page-wrapper">
+	<%= display_error_message %>
+	<% unless @result.blank? %>
+	<div id="result-message">
+		<%= print_result_message(@result) %>
+	</div>
+	<% end %>
+	<div id="friends-view">
+		<div id="bob" class="friend">
+			<h1>Bob</h1>
+			<div class="body">ID: 1</div>
+		</div>
+		<div id="mary" class="friend">
+			<h1>Mary</h1>
+			<div class="body">ID: 2</div>
+		</div>
+		<div id="jim" class="friend">
+			<h1>Jim</h1>
+			<div class="body">ID: 3</div>
+		</div>
+		<div id="zack" class="friend">
+			<h1>Zack</h1>
+			<div class="body">ID: 4</div>
+		</div>
+		<div style="clear:both;"></div>
+	</div>
+	
+	<% form_tag friend_of_friend_url do %>
+		<%= text_field_tag :friend_1 %>
+		<%= text_field_tag :friend_2 %>
+		<%= submit_tag "Are they friends?" %>
+	<% end %>
+</div>
