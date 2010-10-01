@@ -1,5 +1,5 @@
 class UserController < ApplicationController
-  def friend_of_friend
+  def index
     if request.post?
       user_1 = User.new(:id => params[:friend_1].to_i)
       user_2 = User.new(:id => params[:friend_2].to_i)
