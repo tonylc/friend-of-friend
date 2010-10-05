@@ -9,8 +9,4 @@ class User
     @id = params[:id]
     @name = params[:name]
   end
-  
-  def ==(user)
-    self.id == user.id
-  end
 end

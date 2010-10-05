@@ -13,57 +13,57 @@ describe User do
   
   describe "Bob" do        
     it "should be friends with Mary" do
-      @bob.get_friends(@bob).include?(@mary).should == true
+      @bob.get_friends(@bob).collect(&:id).include?(@mary.id).should == true
     end
     
     it "should NOT be friends with Jim" do
-      @bob.get_friends(@bob).include?(@jim).should == false
+      @bob.get_friends(@bob).collect(&:id).include?(@jim.id).should == false
     end
     
     it "should NOT be friends with Zack" do
-      @bob.get_friends(@bob).include?(@zack).should == false
+      @bob.get_friends(@bob).collect(&:id).include?(@zack.id).should == false
     end
   end
   
   describe "Mary" do    
     it "should be friends with Bob" do
-      @mary.get_friends(@mary).include?(@bob).should == true
+      @mary.get_friends(@mary).collect(&:id).include?(@bob.id).should == true
     end
     
     it "should be friends with Jim" do
-      @mary.get_friends(@mary).include?(@jim).should == true
+      @mary.get_friends(@mary).collect(&:id).include?(@jim.id).should == true
     end
     
     it "should NOT be friends with Zack" do
-      @mary.get_friends(@mary).include?(@zack).should == false
+      @mary.get_friends(@mary).collect(&:id).include?(@zack.id).should == false
     end
   end
   
   describe "Jim" do    
     it "should NOT be friends with Bob" do
-      @jim.get_friends(@jim).include?(@bob).should == false
+      @jim.get_friends(@jim).collect(&:id).include?(@bob.id).should == false
     end
     
     it "should be friends with Mary" do
-      @jim.get_friends(@jim).include?(@mary).should == true
+      @jim.get_friends(@jim).collect(&:id).include?(@mary.id).should == true
     end
     
     it "should NOT be friends with Zack" do
-      @jim.get_friends(@jim).include?(@zack).should == false
+      @jim.get_friends(@jim).collect(&:id).include?(@zack.id).should == false
     end
   end
   
   describe "Zack" do    
     it "should NOT be friends with Bob" do
-      @zack.get_friends(@zack).include?(@bob).should == false
+      @zack.get_friends(@zack).collect(&:id).include?(@bob.id).should == false
     end
     
     it "should NOT be friends with Mary" do
-      @zack.get_friends(@zack).include?(@mary).should == false
+      @zack.get_friends(@zack).collect(&:id).include?(@mary.id).should == false
     end
     
     it "should NOT be friends with Jim" do
-      @zack.get_friends(@zack).include?(@jim).should == false
+      @zack.get_friends(@zack).collect(&:id).include?(@jim.id).should == false
     end
   end
 end
